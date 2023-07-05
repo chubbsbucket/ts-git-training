@@ -1,12 +1,17 @@
-export const computeFibonacciNumber = (position: number): number => {
-    if (position === 0) {
+export const computeFibonacciNumber = (position: number | null): number => {
+    let notNullPosition = position;
+    if (notNullPosition === null) {
+        notNullPosition = 1;
+    }
+
+    if (notNullPosition === 0) {
         return 0;
     }
-    if (position < 0) {
+    if (notNullPosition < 0) {
         return computeNegativeFibonacci(position);
     }
 
-    if (position <= 2) {
+    if (notNullPosition <= 2) {
         return 1;
     }
 
